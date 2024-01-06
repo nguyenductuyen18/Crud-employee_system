@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <p>
+        <a style="margin-left: 100px" th:href="@{/department}">
+            Show Department
+        </a>
+
+
+        <a style="margin-left: 100px" th:href="@{/employee/employee}">
+           Show Employee
+        </a>
+
+
+        <a style="margin-left: 100px" th:href="@{/project/project}">
+            Show Project
+        </a>
+    </p>
+    <br>
+    <p>
+        <a style="margin-left: 100px" th:href="@{/department/add}">
+            add department
+        </a>
+
+
+        <a style="margin-left: 100px" th:href="@{/employee/add}">
+            add employee
+        </a>
+
+
+        <a style="margin-left: 100px" th:href="@{/project/add}">
+            add project
+        </a>
+    </p>
+
+
+    <thead>
+    <tr>
+        <th th:if="${not #lists.isEmpty(department)}">Name</th>
+        <th th:if="${not #lists.isEmpty(department)}">Describe</th>
+        <th th:if="${not #lists.isEmpty(department)}">Edit</th>
+        <th th:if="${not #lists.isEmpty(department)}">remote</th>
+
+        <th th:if="${not #lists.isEmpty(department)}">show</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr  th:each="row :${department}">
+        <td th:text="${row.getName()}"></td>
+        <td th:text="${row.getDescribe()}"></td>
+        <td><a th:href="@{/department/{id}/edit(id=${row.getId()})}">edit</a></td>
+        <td><a th:href="@{/department/{id}/remote(id=${row.getId()})}">remote</a></td>
+        <td><a th:href="@{/department/{id}/show(id=${row.getId()})}">show</a></td>
+
+    </tr>
+    </tbody>
+    <br>
+
+</table>
+
+<table>
+<thead>
+<tr>
+    <th th:if="${not #lists.isEmpty(employee)}">Name</th>
+    <th th:if="${not #lists.isEmpty(employee)}">Email</th>
+    <th th:if="${not #lists.isEmpty(employee)}">DateOfBith</th>
+    <th th:if="${not #lists.isEmpty(employee)}">Gender</th>
+    <th th:if="${not #lists.isEmpty(employee)}">Phone</th>
+    <th th:if="${not #lists.isEmpty(employee)}">Project</th>
+    <th th:if="${not #lists.isEmpty(employee)}">Department</th>
+    <th th:if="${not #lists.isEmpty(employee)}">edit</th>
+    <th th:if="${not #lists.isEmpty(employee)}">remote</th>
+    <th th:if="${not #lists.isEmpty(employee)}">show</th>
+</tr>
+</thead>
+<tbody>
+<tr  th:each="row :${employee}">
+    <td th:text="${row.getName()}"></td>
+    <td th:text="${row.getEmail()}"></td>
+    <td th:text="${row.getDateOfBith()}"></td>
+    <td th:text="${row.getGender()}"></td>
+    <td th:text="${row.getPhone()}"></td>
+    <td th:text="${row.getProject()}"></td>
+    <td th:text="${row.getDepartment()}"></td>
+    <td><a th:href="@{/employee/{id}/edit(id=${row.getId()})}">edit</a></td>
+    <td><a th:href="@{/employee/{id}/remote(id=${row.getId()})}">remote</a></td>
+    <td><a th:href="@{/employee/{id}/show(id=${row.getId()})}">show</a></td>
+
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+    <th th:if="${not #lists.isEmpty(project)}">Name</th>
+    <th th:if="${not #lists.isEmpty(project)}">Describe</th>
+    <th th:if="${not #lists.isEmpty(project)}">Start Day</th>
+    <th th:if="${not #lists.isEmpty(project)}">End Date</th>
+    <th th:if="${not #lists.isEmpty(project)}">edit</th>
+    <th th:if="${not #lists.isEmpty(project)}">remote</th>
+    <th th:if="${not #lists.isEmpty(project)}">show</th>
+
+</tr>
+</thead>
+<tbody>
+<tr  th:each="row :${project}">
+    <td th:text="${row.getName()}"></td>
+    <td th:text="${row.getDescribe()}"></td>
+    <td th:text="${row.getStartDay()}"></td>
+    <td th:text="${row.getEndDate()}"></td>
+    <td><a th:href="@{/project/{id}/edit(id=${row.getId()})}">edit</a></td>
+    <td><a th:href="@{/project/{id}/remote(id=${row.getId()})}">remote</a></td>
+    <td><a th:href="@{/project/{id}/show(id=${row.getId()})}">show</a></td>
+
+</tr>
+</tbody>
+</table>
+
+</body>
+</html>

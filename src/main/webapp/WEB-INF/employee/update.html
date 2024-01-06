@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a th:href="@{/employee/employee}">return employee</a>
+<form th:action="@{/employee/update}" th:object="${employee}" method="post">
+    <input th:field="*{id}" type="hidden" />
+
+    <p>name</p>
+    <input th:field="*{name}" type="text" /><br>
+    <p>email</p>
+    <input th:field="*{email}" type="text"/><br>
+    <p>date Of Bith</p>
+    <input th:field="*{dateOfBith}" type="text"/><br>
+    <p>gender</p>
+    <input th:field="*{gender}" type="text"/><br>
+    <p>phone</p>
+    <input th:field="*{phone}" type="text"/><br>
+    <p>project</p>
+    <input th:field="*{project}" type="text"/><br>
+    <p>department</p>
+    <input th:field="*{department}" type="text"/><br>
+    <input value="update" type="submit" />
+
+</form>
+</body>
+</html>

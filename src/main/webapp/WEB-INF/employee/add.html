@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:form="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a th:href="@{/employee/employee}">return employee</a>
+<form th:action="@{/employee/save}" th:object="${employee}" method="post">
+    <input th:field="*{id}" type="hidden" />
+
+    <p>name</p>
+    <input th:field="*{name}" type="text" /><br>
+    <p>email</p>
+    <input th:field="*{email}" type="text" /><br>
+    <p>date Of Bith</p>
+    <input th:field="*{dateOfBith}" type="text" /><br>
+    <p>gender</p>
+    <input th:field="*{gender}" type="text" /><br>
+    <p>phone</p>
+    <input th:field="*{phone}" type="number" /><br>
+<p>project</p>
+    <select th:field="*{project}" >
+        <div th:each="dept : ${project}">
+            <option th:value="${dept.name}" th:text="${dept.name}"></option>
+        </div>
+    </select>
+
+   <br>
+    <p>department</p>
+    <select th:field="*{department}" >
+        <div th:each="dept : ${department}">
+            <option th:value="${dept.name}" th:text="${dept.name}"></option>
+        </div>
+    </select>
+    <input value="add" type="submit" />
+</form>
+</body>
+</html>
